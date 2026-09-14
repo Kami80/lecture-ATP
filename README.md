@@ -5,7 +5,7 @@ An annotation-first lecture workspace built from the supplied `Notes_ATP_01_Tran
 ## Included
 
 - KISS focus mode: the lecture opens cleanly with only essential annotation controls; optional panels and advanced tools appear from **More**.
-- Source-grounded section 2.1 lecture reading with contents, references, and practice prompts; the supplied 50-page PDF remains available as the source link.
+- Full source-grounded reading for all 50 pages of the supplied lecture PDF, with section/subsection contents navigation, page search, references, and practice prompts.
 - Highlight, pen, arrow, text-note, comment, shape, eraser, undo, and redo tools.
 - Freeform derivation board and linked notes.
 - Browser-local autosave with JSON package export/import.
@@ -20,7 +20,9 @@ Personal annotations remain in the browser that created them. Sharing a workspac
 
 ## Current scope
 
-The authored interactive reader currently covers section 2.1, “Eulerian vs. Lagrangian formulations,” from the first-session PDF. The remaining source pages are linked as the original PDF but are not yet individually authored in the reader. PDF export is a print-ready study summary with the current lecture content, board, notes, comments, and ink preview; it is not yet a page-faithful annotated copy of every source page.
+The reader displays every page of `Notes_ATP_01_TransportEquations.pdf` (50 pages) as a navigable, searchable lecture. Contents entries jump to the corresponding source page, and the active lecture page is preserved in the URL-free local session. The original page image remains the visual source of truth while the extracted text layer powers search and optional “Open searchable text” details.
+
+Annotations are page-aware: highlight, pen, arrow, text, comment, shape, eraser, undo, and redo can be used on any source page. Board work, notes, comments, bookmarks, and annotations can be saved locally, exported/imported as JSON, selectively shared through a portable hash link, or included in the browser’s PDF-ready print export. The static export includes the complete 50-page source reader and needs no backend.
 
 ## Local preview
 

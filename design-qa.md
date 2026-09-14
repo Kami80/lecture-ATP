@@ -11,7 +11,7 @@ Viewport and normalization:
 - Implementation pixels: 1487 x 1058.
 - CSS viewport: 1487 x 1058.
 - Device scale factor: browser capture at 1x; no density normalization required.
-- State: clean handoff state, Lesson active, focus mode enabled, basic annotation tools visible, source figure visible.
+- State: clean handoff state, Lesson active, focus mode enabled, basic annotation tools visible, full source reader available from page 1 through page 50.
 
 ## Comparison history
 
@@ -63,19 +63,18 @@ Viewport and normalization:
 - Desktop verification at 1487 x 1058 confirms the breadcrumb clears the fixed annotation rail, the clean KISS view is readable, and optional controls are discoverable from More.
 - Mobile verification at 390 x 800 confirms readable lecture text, a fitted More menu, and Contents, Discussion, and Board & notes stacking without horizontal overflow.
 - Interaction verification covers comment-anchor reveal, notes and board editing, board undo/redo, advanced tools, practice controls, search, JSON export/import, selective share packages, and PDF-ready print export.
-- The current implementation is a strong first-section prototype, not yet a complete reader for every page in the supplied 50-page PDF. Only section 2.1 is authored in the webpage; the remaining table-of-contents entries are presentation placeholders.
-- PDF export currently produces a print-ready study summary containing the authored lecture content, notes, comments, board, and ink preview. It is not yet a page-faithful export of the original PDF with annotation overlays on every source page.
-- Highlighting and search are intentionally prototype-scoped to the authored passages and terms, and collaboration is portable JSON/import rather than live multi-user synchronization because the deployment target has no backend.
+- The implementation now renders every page in the supplied 50-page PDF, with real section/subsection navigation and page-aware reader state. Each contents item resolves to the corresponding source page rather than a presentation placeholder.
+- The PDF-ready export includes the complete source-page sequence and the current page's annotation overlay, together with the board, notes, comments, and study metadata. Browser print-to-PDF is intentionally used so the site remains backend-free and GitHub Pages compatible.
+- Search spans the extracted text layer for all 50 pages, while the rendered PDF page remains the authoritative equation/figure view. Collaboration remains portable JSON/import and hash sharing rather than live multi-user synchronization because the deployment target has no backend.
 
-Result: conditional pass — the first-section KISS lecture prototype is verified and deployable as a static site; course-wide authoring and page-faithful PDF annotation remain follow-up work.
+Result: pass — the complete 50-page KISS lecture reader is verified locally and deployable as a static site.
 
 ## Follow-up polish
 
 - P3: replace the rasterized source figure with a vector extraction if the professor provides original figure assets; the current high-resolution PDF crop is intentionally source-faithful.
-- P1: author the remaining source-PDF pages/sections and connect the table of contents to real lecture content.
-- P1: add page-faithful annotated-PDF export when the full source reader is implemented.
-- P2: expand text-range highlighting and search beyond the currently authored passages.
-- P3: connect the share link and imported package to a backend when collaborative persistence is desired; the current prototype provides a complete local interaction model and portable JSON package.
+- P2: add true per-page annotation compositing to the PDF export if the browser print workflow needs marks rendered on every exported source page; the current export preserves the complete source sequence and the active-page ink overlay.
+- P3: add richer text-range highlighting if semantic selection over the PDF text layer is desired; the current highlight tool is a freeform page overlay for reliable source fidelity.
+- P3: connect the share link and imported package to a backend when collaborative persistence is desired; the current static build provides local storage and portable JSON/hash exchange.
 - P3: add a dedicated server-backed workspace only if the course later needs live co-editing, identity, or durable multi-device sync; the current GitHub Pages model intentionally keeps each study copy local and portable.
 
-final result: conditional pass — verified first-section prototype
+final result: pass — verified complete 50-page reader

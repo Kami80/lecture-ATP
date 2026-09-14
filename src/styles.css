@@ -345,3 +345,62 @@ h2 { color: #1a273c; font-size: 24px; letter-spacing: -0.025em; margin: 18px 0 8
   .notes-index { border-right: 0; padding-right: 0; }
   .note-editor { display: none; }
 }
+
+/* Full source-reader surfaces */
+.search-wrap { position: relative; }
+.lecture-search-results { position: absolute; top: 43px; right: 0; z-index: 8; width: min(390px, calc(100vw - 36px)); overflow: hidden; border: 1px solid #dfe4dc; border-radius: 9px; background: #fcfbf7; box-shadow: 0 16px 34px rgba(37, 53, 43, .15); }
+.lecture-search-results button { width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 2px 8px; border: 0; border-bottom: 1px solid #edf0eb; background: none; padding: 10px 12px; text-align: left; color: var(--ink); }
+.lecture-search-results button:hover, .lecture-search-results button:focus-visible { background: #f0f3ec; }
+.lecture-search-results button > span { grid-row: span 2; color: var(--moss-dark); font: 11px Arial, sans-serif; padding-top: 2px; }
+.lecture-search-results button strong { font-size: 12px; }
+.lecture-search-results button small { color: #7f8a81; font-size: 11px; }
+.search-empty { padding: 13px; color: #778279; font-size: 12px; }
+.toc-row { grid-template-columns: minmax(0, 1fr) 20px; gap: 0; padding: 0 4px; }
+.toc-main-link { min-width: 0; display: grid; grid-template-columns: 28px minmax(0, 1fr) 24px; align-items: center; gap: 7px; border: 0; background: none; padding: 0; color: inherit; text-align: left; font: inherit; }
+.toc-expander { display: grid; place-items: center; width: 20px; height: 28px; border: 0; border-radius: 5px; background: none; color: #66736a; padding: 0; }
+.toc-expander:hover, .toc-expander:focus-visible { background: #e7ece4; }
+.toc-child { grid-template-columns: 34px minmax(0, 1fr) 24px; }
+.toc-child-page { color: #8a948b; text-align: right; font-size: 11px; }
+.lesson-actions { align-items: center; flex-wrap: wrap; }
+.page-step { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 1px solid #dfe4dc; border-radius: 6px; background: #fdfcf9; color: var(--moss-dark); }
+.page-step:disabled, .page-footer-nav button:disabled { opacity: .42; cursor: not-allowed; }
+.page-counter { color: #778279; font: 11px Arial, sans-serif; white-space: nowrap; }
+.full-reader { padding-bottom: 24px; }
+.reader-context { display: flex; align-items: center; gap: 8px; margin: 16px 0 14px; border: 1px solid #dfe8dc; border-radius: 7px; padding: 9px 11px; background: #f4f7f0; color: #53645a; font: 12px Arial, sans-serif; }
+.reader-context .icon { flex: none; color: var(--moss-dark); }
+.reader-mark-count { margin-left: auto; color: var(--moss-dark); font-size: 11px; white-space: nowrap; }
+.source-page { margin: 0 auto; width: min(100%, 760px); }
+.source-page-meta { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; color: #7b867d; font: 11px Arial, sans-serif; }
+.source-page-meta span:last-child { color: var(--moss-dark); text-align: right; }
+.source-page-frame { position: relative; overflow: hidden; border: 1px solid #dfe4dc; border-radius: 5px; background: #fff; box-shadow: 0 8px 24px rgba(35, 49, 42, .1); }
+.source-page-frame > img { display: block; width: 100%; height: auto; }
+.source-page-sketch { inset: 0; }
+.source-text { margin-top: 10px; border-top: 1px solid #e5e8e2; color: #59655d; }
+.source-text summary { cursor: pointer; padding: 10px 2px 7px; color: var(--moss-dark); font-size: 12px; }
+.source-text p { max-height: 230px; overflow: auto; margin: 0 0 8px; border-left: 3px solid #dfe8dc; padding: 3px 10px; color: #69746d; font: 12px/1.5 Arial, sans-serif; }
+.page-footer-nav { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; border-top: 1px solid #e5e8e2; padding-top: 12px; }
+.page-footer-nav button { display: inline-flex; align-items: center; gap: 6px; }
+.page-footer-nav label { display: inline-flex; align-items: center; gap: 6px; color: #748078; font: 11px Arial, sans-serif; }
+.page-footer-nav input { width: 48px; border: 1px solid #dfe4dc; border-radius: 5px; padding: 5px; background: #fff; color: var(--ink); text-align: center; font: 12px Arial, sans-serif; }
+.comment-composer > small { display: block; margin-bottom: 7px; color: #728078; font: 11px Arial, sans-serif; }
+.source-export-page .export-visual { border: 1px solid #e1e5df; }
+
+@media (max-width: 860px) {
+  .lesson-header { flex-wrap: wrap; }
+  .lesson-header { padding-left: 70px; }
+  .lesson-actions { justify-content: flex-end; }
+  .reader-context { align-items: flex-start; flex-wrap: wrap; }
+  .reader-mark-count { margin-left: 24px; }
+  .source-page-meta { align-items: flex-start; flex-direction: column; }
+  .source-page-meta span:last-child { text-align: left; }
+  .page-footer-nav { flex-wrap: wrap; }
+}
+
+@media (max-width: 620px) {
+  .lecture-search-results { left: 0; right: auto; width: min(300px, calc(100vw - 24px)); }
+  .lesson-actions { gap: 5px; }
+  .page-counter { order: 2; }
+  .page-footer-nav label { order: 3; width: 100%; justify-content: center; }
+  .reader-context { font-size: 11px; }
+  .reader-mark-count { margin-left: 24px; }
+}
